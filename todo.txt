@@ -1,0 +1,2 @@
+Make a machine player
+Make the machine player learn
