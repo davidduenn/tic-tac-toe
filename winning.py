@@ -6,8 +6,14 @@ def check_top(board):
     return board[0][0]
   return 0
 
+def check_cross(board):
+  # Check to see if second row is solid
+  if board[1][0] == board[1][1] == board[1][2]:
+    return board[1][0]
+  return 0
+
 def check_diag(board):
-  # Check to see if the top-let to bottom-right diag is solid
+  # Check to see if the top-left to bottom-right diag is solid
   if board[0][0] == board[1][1] == board[2][2]:
     return board[0][0]
   return 0
@@ -36,7 +42,11 @@ def get_winner(board):
         print_board(board)
         return win
     if i is 1 or 2:
-      # Only need to check the diagonals twice
+      # Only need to check the crosses and diagonals twice
+      win = check_cross(check_board)
+      if win:
+        print_board(board)
+        return win
       win = check_diag(check_board)
       if win:
         print_board(board)
