@@ -1,11 +1,13 @@
 from winning import get_winner, print_winner
 from helpers import get_input, valid_move, make_move
 from printing import print_board
-from machine_player import generate_simple_move
+from machine_players import generate_simple_move
+
 
 player_type = 1
   # 0: human, 1: simple machinge, 2: difficult machine
   
+
 def main():
   board = [[0,0,0],[0,0,0],[0,0,0]]
   x_turn = 1
