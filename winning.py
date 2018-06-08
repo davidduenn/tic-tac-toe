@@ -1,3 +1,5 @@
+from printing import print_board
+
 def check_top(board):
   # Check to see if the top row is solid
   if board[0][0] == board[0][1] == board[0][2]:
