@@ -3,11 +3,11 @@ import redis
 from winning import get_winner, print_winner
 from helpers import get_input, valid_move, make_move
 from printing import print_board
-from machine_players import generate_simple_move, generate_complex_move
+from machine_players import generate_simple_move, generate_random_move, generate_complex_move
 
 
 player_type = 3
-  # 0: human, 1: simple machinge, 2: difficult machine
+  # 0: human, 1: simple machinge, 2: random machine, 3: difficult machine
   
 
 def main():
@@ -17,8 +17,10 @@ def main():
     print_board(board)
     if player_type and not x_turn:
       # machine player will play as O
-      if player_type==2:
+      if player_type==1:
         [x,y] = generate_simple_move(board)
+      if player_type==2:
+        [x,y] = generate_random_move(board)
       if player_type==3:
         [x,y] = generate_complex_move(board)
     else:

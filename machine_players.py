@@ -1,4 +1,8 @@
 import redis
+import json
+import math, random, time
+
+random.seed(time.time())
 
 
 def generate_simple_move(board):
@@ -10,6 +14,11 @@ def generate_simple_move(board):
     except ValueError:
       continue
     return row,column
+
+def generate_random_move(board):
+  row = int(math.floor(random.random()*3)) # give a random int (0-3)
+  column = int(math.floor(random.random()*3)) # give a random int (0-3)
+  return row,column
 
 def generate_complex_move(board):
   r = redis.Redis()
