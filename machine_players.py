@@ -12,4 +12,7 @@ def generate_simple_move(board):
     return row,column
 
 def generate_complex_move(board):
-  pass
+  r = redis.Redis()
+  r.set('my_board', board)
+  print r.get('my_board')
+  return generate_simple_move(board)
