@@ -1,4 +1,3 @@
-Make a machine player
-Make the machine player learn
-
 How should a draw affect the db?
+
+If no good play from db, generate random but don't play poorly-rated plays?
