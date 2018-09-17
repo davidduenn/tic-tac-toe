@@ -2,6 +2,8 @@ import redis
 import json
 import math, random, time
 
+from helpers import clean_board_for_db
+
 random.seed(time.time())
 
 
@@ -20,8 +22,17 @@ def generate_random_move(board):
   column = int(math.floor(random.random()*3)) # give a random int (0-3)
   return row,column
 
-def generate_complex_move(board):
-  r = redis.Redis()
-  r.set('my_board', board)
-  print r.get('my_board')
-  return generate_simple_move(board)
+def generate_complex_move(board, r):
+  best_board=[]
+  best_score=0
+  for board in r.keys(str(clean_board_for_db(board)+'*')):
+    if int(r.get(board)) > best_score:
+      best_score = r.get(board)
+      best_board = board
+  if best_board and best_score>0:
+    print "--- complex plays from db"
+    return int(best_board[10]), int(best_board[11])
+  else:
+    # There's no good move from the db so play a random move
+    print "--- complex plays random"
+    return generate_random_move(board)
