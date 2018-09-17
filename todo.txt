@@ -1,2 +1,4 @@
 Make a machine player
 Make the machine player learn
+
+How should a draw affect the db?
