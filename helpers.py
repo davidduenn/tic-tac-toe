@@ -23,3 +23,15 @@ def valid_move(board, x, y):
 
 def make_move(board, x, y, char):
   board[x][y] = char
+
+def clean_board_for_db(board):
+  my_str=''
+  for i in board:
+    for j in i:
+      my_str = my_str + str(j)
+  return my_str
+
+def clean_move_for_db(move):
+  # move: [board, player, x, y]
+  board = clean_board_for_db(move[0])
+  return board + str(move[1]) + str(move[2]) + str(move[3])
