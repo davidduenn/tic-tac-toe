@@ -1,0 +1,15 @@
+version: "3.1"
+
+services:
+  tic-tac-toe:
+    build: .
+    container_name: ttt_app
+    image: tic-tac-toe
+    depends_on:
+      - redis
+    entrypoint:
+      - python
+      - /home/tic-tac-toe/main.py
+  redis:
+    container_name: ttt_redis
+    image: "redis:5.0.5-alpine"
