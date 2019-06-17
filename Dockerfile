@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:7.6.1810
 
 LABEL maintainer="David Duenn <davidduenn@gmail.com>"
 
