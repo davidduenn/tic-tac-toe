@@ -3,3 +3,5 @@ How should a draw affect the db?
 If no good play from db, generate random but don't play poorly-rated plays?
 
 Add functions to rotate and mirror the board. Use those to query the db.
+
+Base Dockerfile off python image instead of CentOS

@@ -15,7 +15,7 @@ def main():
   board = [[0,0,0],[0,0,0],[0,0,0]]
   x_moves=[]
   o_moves=[]
-  r = redis.Redis(host="localhost")
+  r = redis.Redis(host="ttt_redis")
   x_turn = 1 # X goes first
 
   from helpers import clean_move_for_db
